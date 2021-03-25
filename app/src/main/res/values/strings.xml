@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">ListApp</string>
+    <string name="quick_drink_str">快餐</string>
 </resources>

@@ -3,8 +3,6 @@ package com.joker.listapp;
 
 import android.content.Context;
 import android.graphics.Color;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,11 +15,18 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
+import com.joker.listapp.custom.ItemBean;
+
 import java.util.List;
 
 public class ItemAdapter extends BaseAdapter {
 
     private int layoutId;
+    private int TEXT_SIZE_16 = 16;
+    private int TEXT_SIZE_18 = 18;
     private List<ItemBean> list;
     private Context context;
     private int selectid = -1;
@@ -66,30 +71,39 @@ public class ItemAdapter extends BaseAdapter {
 
         ItemBean itemBean = list.get(position);
         View view = LayoutInflater.from(context).inflate(R.layout.list_item,null);
-        ImageView imageView = view.findViewById(R.id.item_img);
-        TextView textView = view.findViewById(R.id.item_name);
-        imageView.setImageResource(itemBean.getImgFalse());
-        textView.setText(itemBean.getText());
-
-        if(selectid == position){
-            Log.d("ItemAdapter", "getView()  selectId = "+selectid);
-            Animation testAnim = AnimationUtils.loadAnimation(context, R.anim.item_list_anim);
-            view.startAnimation(testAnim);
-            view.setScaleX((float) 1.1);
-            view.setScaleY((float)1.1);
-            imageView.setImageResource(itemBean.getImgTrue());
-            textView.setTextSize(18);
-            textView.setTextColor(Color.rgb(222,159,55));
-
-        }else {
-            view.setScaleY(1);
-            view.setScaleX(1);
-            imageView.setFocusable(false);
-            textView.setFocusable(false);
-            textView.setTextSize(16);
-            imageView.setImageResource(itemBean.getImgFalse());
-            textView.setTextColor(Color.rgb(255,255,255));
-        }
+//        ImageView imageView = view.findViewById(R.id.item_img);
+//        TextView textView = view.findViewById(R.id.item_name);
+//        imageView.setImageResource(itemBean.getImgFalse());
+//        textView.setText(itemBean.getText());
+//        textView.setTextSize(TEXT_SIZE_16);
+//        textView.setTextColor(Color.rgb(255,255,255)); // White
+//        if(selectid == position){
+//            Log.d("ItemAdapter","getView selectId = "+selectid);
+//            Animation testAnim = AnimationUtils.loadAnimation(context, R.anim.item_list_anim);
+//            textView.setTextSize(TEXT_SIZE_18);
+//            textView.setTextColor(Color.rgb(222,159,55));
+//            imageView.setImageResource(itemBean.getImgTrue());
+//            view.startAnimation(testAnim);
+//        }
+//        if(selectid == position){
+//            Log.d("ItemAdapter", "getView()  selectId = "+selectid);
+//            Animation testAnim = AnimationUtils.loadAnimation(context, R.anim.item_list_anim);
+//            view.startAnimation(testAnim);
+//            view.setScaleX((float) 1.1);
+//            view.setScaleY((float)1.1);
+//            imageView.setImageResource(itemBean.getImgTrue());
+//            textView.setTextSize(18);
+//            textView.setTextColor(Color.rgb(222,159,55));
+//
+//        }else {
+//            view.setScaleY(1);
+//            view.setScaleX(1);
+//            imageView.setFocusable(false);
+//            textView.setFocusable(false);
+//            textView.setTextSize(16);
+//            imageView.setImageResource(itemBean.getImgFalse());
+//            textView.setTextColor(Color.rgb(255,255,255));
+//        }
 
         return view;
     }
