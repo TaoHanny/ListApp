@@ -46,9 +46,6 @@ public class TVLayout extends RelativeLayout {
         gridView.setAdapter(listAdapter);
         initListener();
         gridView.setFocusable(true);
-        int width = gridView.getWidth();
-        int height = gridView.getHeight();
-        Log.d(TAG, "onInitView() width = "+width +" ,height = "+height);
     }
 
     private void initListener() {

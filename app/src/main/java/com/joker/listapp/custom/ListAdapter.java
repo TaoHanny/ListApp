@@ -58,25 +58,17 @@ public class ListAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         ItemBean itemBean = list.get(position);
         View view =  View.inflate(context,R.layout.list_item,null);
-//        AbsListView.LayoutParams params = new AbsListView.LayoutParams(200,180);
-//        view.setLayoutParams(params);
-//        View view = LayoutInflater.from(context).inflate(R.layout.list_item,null);
         ImageView imageView = view.findViewById(R.id.item_img);
         TextView textView = view.findViewById(R.id.item_name);
         imageView.setImageResource(itemBean.getImgFalse());
         textView.setText(itemBean.getText());
+        textView.setTextColor(Color.GRAY);
         view.setBackgroundColor(Color.TRANSPARENT);
         if(selectid == position){
-            view.setBackgroundColor(Color.BLACK);
+            imageView.setImageResource(itemBean.getImgTrue());
+            textView.setTextColor(Color.WHITE);
         }
-
-
         return view;
-    }
-
-
-    private void onInitScreen(){
-
     }
 
 }
