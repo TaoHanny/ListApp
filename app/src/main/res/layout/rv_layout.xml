@@ -3,7 +3,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+
+
     <LinearLayout
+        android:visibility="visible"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="20dp">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_gray_left_bg"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp">
+            <Button
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/img_color_true"
+                android:text="@string/color_model_str"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/home_black_right_bg"
+            android:paddingLeft="40dp"
+            android:paddingRight="40dp">
+            <Button
+                android:layout_centerInParent="true"
+                android:background="@android:color/transparent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableLeft="@drawable/img_clarity"
+                android:text="@string/clarity_model_str"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:visibility="gone"
         android:background="@drawable/img_color_bg"
         android:layout_alignParentBottom="true"
         android:layout_width="match_parent"
@@ -39,6 +84,7 @@
                 android:visibility="gone"/>
 
             <LinearLayout
+                android:id="@+id/seekBar_layout"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
@@ -47,14 +93,16 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:background="@android:color/transparent"/>
-                <SeekBar
+                <androidx.appcompat.widget.AppCompatSeekBar
+                    android:id="@+id/seek_bar"
                     android:layout_width="0dp"
                     android:layout_weight="5"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:max="100"
                     android:progress="10"
                     android:maxHeight="3dp"
-                    android:theme="@drawable/seekbar_drawable_thumb"
+                    android:layout_gravity="center_vertical"
+                    android:theme="@drawable/seek_bg_thumb"
                     android:progressDrawable="@drawable/seek_bar_bg"/>
                 <View
                     android:layout_width="0dp"
@@ -67,5 +115,8 @@
         </RelativeLayout>
 
     </LinearLayout>
+
+
+
 
 </RelativeLayout>
